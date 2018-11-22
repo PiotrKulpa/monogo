@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import List from './components/List';
 import Aboutus from './components/Aboutus';
+import NoMatch from './components/NoMatch';
 
 class App extends Component {
 
@@ -25,15 +26,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Route exact path="/" render={()=>(
-           <div>
-             <List
-               posts = {this.state.posts}
-               />
-           </div>
-         )}/>
-        <Route exact path="/about" component={Aboutus} />
+      <div>
+        <div className="container-fluid">Nav</div>
+        <div className="App container">
+          <Switch>
+            <Route exact path="/" render={()=>(
+               <div>
+                 <List
+                   posts = {this.state.posts}
+                   />
+               </div>
+             )}/>
+            <Route exact path="/about" component={Aboutus} />
+            <Route component={NoMatch} />
+          </Switch>
+        </div>
+        <div className="container-fluid footer">Footer</div>
       </div>
     );
   }
