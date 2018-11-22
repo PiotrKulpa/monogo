@@ -26,7 +26,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" component={List} />
+        <Route exact path="/" render={()=>(
+           <div>
+             <List
+               posts = {this.state.posts}
+               />
+           </div>
+         )}/>
         <Route exact path="/about" component={Aboutus} />
       </div>
     );
