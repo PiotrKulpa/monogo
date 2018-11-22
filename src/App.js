@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Link} from 'react-router-dom';
 import List from './components/List';
 import Aboutus from './components/Aboutus';
 import NoMatch from './components/NoMatch';
@@ -27,7 +27,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="container-fluid">Nav</div>
+        <div className="container-fluid">
+          <nav>
+            <Link to="/">Home</Link><span> | </span>
+            <Link to="/about">About Us</Link>
+          </nav>
+        </div>
         <div className="App container">
           <Switch>
             <Route exact path="/" render={()=>(

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './List.css';
 
 class List extends Component {
@@ -13,6 +14,12 @@ class List extends Component {
               <div dangerouslySetInnerHTML={{__html: el.body}} />
             </div>
             )}
+          {/* Pagination */}
+          <div>
+            <Link to="/">1</Link><span> | </span>
+            <Link to="/2">2</Link><span> | </span>
+            <Link to="/3">3</Link>
+          </div>
       </div>
     );
   }
