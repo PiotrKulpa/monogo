@@ -6,10 +6,21 @@ import Aboutus from './components/Aboutus';
 
 class App extends Component {
 
+  state = {
+     defaultPosts: [],
+     posts: [],
+     msg: ''
+   }
+
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
-    .then(json => console.log(json));
+    .then((json) => {
+      this.setState({
+        defaultPosts: json,
+        posts: json.slice(0, 5)
+      });
+    });
   }
 
   render() {
