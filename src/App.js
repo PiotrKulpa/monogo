@@ -15,6 +15,23 @@ class App extends Component {
      msg: ''
    }
 
+   /**
+  * Search post by title.
+  */
+ searchPost(e) {
+
+     if (e.target.value.length > 0) {
+       this.setState({
+         posts: this.state.defaultPosts.filter((el) => el.title.toLowerCase().includes(e.target.value.toLowerCase()))
+       }, this.alertMessage);
+     } else {
+       this.setState({
+         posts: this.state.defaultPosts.slice(0,5)
+       });
+     }
+
+   }
+
    pagination = (id) => {
      let maxRange = 5 * id;
      let minRange = maxRange - 5;
@@ -44,6 +61,7 @@ class App extends Component {
             <Link to="/">Home</Link><span> | </span>
             <Link to="/about">About Us</Link>
           </nav>
+          <input onChange={(e) => this.searchPost(e)} />
         </div>
         <div className="App container">
 
