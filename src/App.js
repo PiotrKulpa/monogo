@@ -16,7 +16,12 @@ class App extends Component {
    }
 
    pagination = (id) => {
-     console.log(id);
+     let maxRange = 5 * id;
+     let minRange = maxRange - 5;
+
+     this.setState({
+       posts: this.state.defaultPosts.slice(minRange, maxRange)
+     })
    }
 
   componentDidMount() {

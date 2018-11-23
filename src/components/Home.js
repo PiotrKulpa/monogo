@@ -16,6 +16,7 @@ class Home extends Component {
           {/* Render posts */}
           {!this.props.posts.length === 0 ? <p>Sorry, didn't found any Post</p> : this.props.posts.map((el) =>
             <div key={el.id}>
+              <h1>{el.id}</h1>
               <h1>{el.title}</h1>
               <div dangerouslySetInnerHTML={{__html: el.body}} />
             </div>
