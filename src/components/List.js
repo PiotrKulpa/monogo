@@ -5,7 +5,8 @@ import './List.css';
 class List extends Component {
 
   componentDidMount() {
-      //console.log(this.props.pagprops.match.params.id);
+    //TODO: add url params support
+      console.log(this.props.pagprops.match.params.id);
   }
 
   render() {
