@@ -5,6 +5,7 @@ import Home from './components/Home';
 import List from './components/List';
 import Aboutus from './components/Aboutus';
 import NoMatch from './components/NoMatch';
+import Pagination from './components/Pagination';
 
 class App extends Component {
 
@@ -14,8 +15,8 @@ class App extends Component {
      msg: ''
    }
 
-   pagination = () => {
-
+   pagination = (id) => {
+     console.log(id);
    }
 
   componentDidMount() {
@@ -27,7 +28,6 @@ class App extends Component {
         posts: json.slice(0, 5)
       });
     });
-
 
   }
 
@@ -47,14 +47,19 @@ class App extends Component {
                <div>
                  <Home
                    posts = {this.state.posts}
+                   />
+                 <Pagination
                    pag = {this.pagination}
                    />
                </div>
              )}/>
-           <Route exact path="/posts/:id" render={()=>(
+           <Route exact path="/posts/:id" render={(props)=>(
                <div>
                  <List
                    posts = {this.state.posts}
+                   pagprops = {props}
+                   />
+                 <Pagination
                    pag = {this.pagination}
                    />
                </div>

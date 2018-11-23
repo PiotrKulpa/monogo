@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './List.css';
+import './Home.css';
+
 
 class Home extends Component {
 
@@ -20,12 +21,7 @@ class Home extends Component {
             </div>
             )}
 
-            {/* Pagination */}
-            <div>
-              <Link to="/posts/1">1</Link><span> | </span>
-              <Link to="/posts/2">2</Link><span> | </span>
-              <Link to="/posts/3">3</Link>
-            </div>
+
       </div>
     );
   }

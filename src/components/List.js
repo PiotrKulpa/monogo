@@ -5,7 +5,7 @@ import './List.css';
 class List extends Component {
 
   componentDidMount() {
-    //console.log(props.match.params.id);
+      //console.log(this.props.pagprops.match.params.id);
   }
 
   render() {
@@ -20,12 +20,7 @@ class List extends Component {
             </div>
             )}
 
-          {/* Pagination */}
-          <div>
-            <Link to="/posts/1">1</Link><span> | </span>
-            <Link to="/posts/2">2</Link><span> | </span>
-            <Link to="/posts/3">3</Link>
-          </div>
+
       </div>
     );
   }
