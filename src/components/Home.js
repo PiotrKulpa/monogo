@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './List.css';
 
-class List extends Component {
+class Home extends Component {
 
   componentDidMount() {
     //console.log(props.match.params.id);
@@ -20,15 +20,15 @@ class List extends Component {
             </div>
             )}
 
-          {/* Pagination */}
-          <div>
-            <Link to="/posts/1">1</Link><span> | </span>
-            <Link to="/posts/2">2</Link><span> | </span>
-            <Link to="/posts/3">3</Link>
-          </div>
+            {/* Pagination */}
+            <div>
+              <Link to="/posts/1">1</Link><span> | </span>
+              <Link to="/posts/2">2</Link><span> | </span>
+              <Link to="/posts/3">3</Link>
+            </div>
       </div>
     );
   }
 }
 
-export default List;
+export default Home;
