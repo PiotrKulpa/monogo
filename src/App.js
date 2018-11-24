@@ -58,12 +58,18 @@ console.log(this.state.defaultPosts);
     return (
       <div>
         <div className="container-fluid app-header">
-          <input className="search mt-5" onChange={(e) => this.searchPost(e)} />
-          <nav className="ml-5">
-            <Link to="/">Home</Link><span> | </span>
-            <Link to="/posts/1">Posts</Link><span> | </span>
-            <Link to="/about">About Us</Link>
-          </nav>
+          <p className="slogan pt-2">WHEN YOU ENTER INTO ANY NEW AREA OF SCIENCE...</p>
+          <input className="search mt-5 mr-5" onChange={(e) => this.searchPost(e)} />
+          <div className="row align-items-center app-menu">
+            <div className="col-sm-1"><img src={require("./images/logo.jpg")} /></div>
+            <nav className="app-navigation col-sm-10 ml-1">
+              <Link to="/">Home</Link>
+              <Link to="/posts/1">Posts</Link>
+              <Link to="/about">About Us</Link>
+            </nav>
+          </div>
+
+          <div className="app-line"></div>
 
         </div>
         <div className="App container">
@@ -98,7 +104,7 @@ console.log(this.state.defaultPosts);
         </div>
 
 
-        <div className="container-fluid footer">Footer</div>
+        <div className="container-fluid app-footer">Footer</div>
       </div>
     );
   }
