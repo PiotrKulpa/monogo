@@ -5,7 +5,11 @@ class NoMatch extends Component {
   render() {
     return (
       <div className="NoMatch">
-        <h1>No match for this path</h1>
+        <h1 className="home-slogan">not found ;(</h1>
+        <div className="home-subslogan">
+          <p className="font_small">are you sure what you are looking for?</p>
+          <p>We're sorry but there is no such site</p>
+        </div>
       </div>
     );
   }

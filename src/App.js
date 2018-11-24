@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
 import Home from './components/Home';
 import List from './components/List';
 import Aboutus from './components/Aboutus';
@@ -14,15 +14,27 @@ class App extends Component {
      defaultPosts: [],
      latestPosts: [],
      posts: [],
+     goToPosts: false,
      msg: ''
    }
 
+onFocus() {
+  this.setState({
+    goToPosts: true
+  });
+}
+
+onBlur() {
+  this.setState({
+    goToPosts: false
+  });
+}
 
    /**
   * Search post by title.
   */
  searchPost(e) {
-console.log(this.state.defaultPosts);
+console.log(Redirect);
      if (e.target.value.length > 0) {
        this.setState({
          posts: this.state.defaultPosts.filter((el) => el.title.toLowerCase().includes(e.target.value.toLowerCase()))
@@ -57,11 +69,17 @@ console.log(this.state.defaultPosts);
   }
 
   render() {
+
     return (
+
       <div>
         <div className="container-fluid app-header">
           <p className="slogan pt-2">WHEN YOU ENTER INTO ANY NEW AREA OF SCIENCE...</p>
-          <input className="search mt-5 mr-5" onChange={(e) => this.searchPost(e)} />
+          <input className="search mt-5 mr-5"
+            onChange={(e) => this.searchPost(e)}
+            onFocus={() => this.onFocus()}
+            onBlur={() => this.onBlur()}
+            placeholder="search post" />
           <div className="row align-items-center app-menu">
             <div className="col-sm-1"><img src={require("./images/logo.jpg")} /></div>
             <nav className="app-navigation col-sm-10 ml-1">
@@ -78,10 +96,12 @@ console.log(this.state.defaultPosts);
 
           <Switch>
             <Route exact path="/" render={()=>(
+                this.state.goToPosts ? <Redirect to="/posts/1" /> :
                <div>
-                 <Home
-                   posts = {this.state.latestPosts}
-                   />
+
+                   <Home
+                     posts = {this.state.latestPosts}
+                     />
                </div>
              )}/>
            <Route exact path="/posts/:id" render={(props)=>(

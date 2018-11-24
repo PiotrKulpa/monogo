@@ -20,12 +20,13 @@ class Home extends Component {
         </div>
         <div className="home-latest p-5">
           <h3>Latest news</h3>
-          <div><img src={require("../images/images.jpg")} /></div>
+
           <div className="last-post-container">
-          {/* Render posts */}
+          {/* Render last posts */}
           {!this.props.posts.length === 0 ? <p>Sorry, didn't found any Post</p> : this.props.posts.map((el) =>
             <div key={el.id} className="" >
               <div className="last-post">
+                <img src={require(`../images/last_${el.id}.jpg`)} />
                 <h1>{el.id}</h1>
                 <h1>{el.title}</h1>
                 <div dangerouslySetInnerHTML={{__html: el.body}} />
