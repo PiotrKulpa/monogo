@@ -15,5 +15,11 @@
   background-color: white;
   border-color: red;
   color: red;
-    text-decoration: none;
+  text-decoration: none;
+}
+
+.active-route {
+  background-color: white !important;
+  border-color: red !important;
+  color: red !important;
 }

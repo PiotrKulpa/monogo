@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, NavLink, Redirect} from 'react-router-dom';
 import Home from './components/Home';
 import List from './components/List';
 import Aboutus from './components/Aboutus';
@@ -83,9 +83,9 @@ console.log(Redirect);
           <div className="row align-items-center app-menu">
             <div className="col-sm-1"><img src={require("./images/logo.jpg")} /></div>
             <nav className="app-navigation col-sm-10 ml-1">
-              <Link to="/">Home</Link>
-              <Link to="/posts/1">Posts</Link>
-              <Link to="/about">About Us</Link>
+              <NavLink exact activeClassName="active-menu" to="/">Home</NavLink>
+              <NavLink activeClassName="active-menu" to="/posts/1">Posts</NavLink>
+              <NavLink activeClassName="active-menu" to="/about">About Us</NavLink>
             </nav>
           </div>
 

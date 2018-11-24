@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Pagination.css';
 
 class Pagination extends Component {
@@ -14,9 +14,9 @@ class Pagination extends Component {
         {/* Pagination */}
         <div>
 
-          <Link onClick={(e) => {this.props.pag(1)}} to="/posts/1">1</Link>
-          <Link onClick={(e) => {this.props.pag(2)}} to="/posts/2">2</Link>
-          <Link onClick={(e) => {this.props.pag(3)}} to="/posts/3">3</Link>
+          <NavLink activeClassName="active-route" onClick={(e) => {this.props.pag(1)}} to="/posts/1">1</NavLink>
+          <NavLink activeClassName="active-route" onClick={(e) => {this.props.pag(2)}} to="/posts/2">2</NavLink>
+          <NavLink activeClassName="active-route" onClick={(e) => {this.props.pag(3)}} to="/posts/3">3</NavLink>
 
         </div>
       </div>

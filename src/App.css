@@ -60,6 +60,10 @@ small, .font_small {font-size: 0.667em;}
   margin-top: 150px;
 }
 
+.active-menu {
+  color: #cc171e !important;
+}
+
 .app-line {
   width: 100%;
   height: 10px;
