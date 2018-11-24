@@ -104,7 +104,18 @@ console.log(this.state.defaultPosts);
         </div>
 
 
-        <div className="container-fluid app-footer">Footer</div>
+        <div className="container-fluid app-footer pt-5">
+          <div className="row align-items-center">
+            <div className="col-sm-1"><img src={require("./images/logo.jpg")} /></div>
+            <div className="footer-data col-sm-12 col-md-5 ml-1 font_small">
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin enim et accumsan lobortis. Pellentesque ac enim velit. Nullam condimentum sagittis nulla non posuere. Sed placerat finibus auctor. Fusce quam arcu, porta et pretium non, fermentum in dui. Proin at tortor ut eros vulputate venenatis sit amet in tellus. Nullam elementum nec purus nec sagittis. Nulla sagittis dignissim porttitor. Suspendisse lacinia enim nec diam euismod gravida. Proin elementum felis tellus, sed sollicitudin arcu euismod at.</p>
+               <p>Sed sollicitudin arcu euismod at.</p>
+            </div>
+            <div className="footer-data col-sm-12 col-md-5 font_small text-right">
+              <p>Copyright © PIOTR KULPA 2018</p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

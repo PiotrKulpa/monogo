@@ -72,3 +72,7 @@ small, .font_small {font-size: 0.667em;}
   color: red;
   text-decoration: none;
 }
+
+.app-footer {
+  background-color: #11151e;
+}
