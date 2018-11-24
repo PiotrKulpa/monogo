@@ -12,6 +12,7 @@ class App extends Component {
 
   state = {
      defaultPosts: [],
+     latestPosts: [],
      posts: [],
      msg: ''
    }
@@ -49,7 +50,8 @@ console.log(this.state.defaultPosts);
     .then((json) => {
       this.setState({
         defaultPosts: json,
-        posts: json.slice(0, 5)
+        posts: json.slice(0, 5),
+        latestPosts: json.slice(0, 5)
       });
     });
   }
@@ -78,7 +80,7 @@ console.log(this.state.defaultPosts);
             <Route exact path="/" render={()=>(
                <div>
                  <Home
-                   posts = {this.state.posts}
+                   posts = {this.state.latestPosts}
                    />
                </div>
              )}/>
