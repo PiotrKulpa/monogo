@@ -1,0 +1,30 @@
+.home-latest {
+  background-color: #cc171e;
+  margin-top: 200px;
+}
+
+.home-latest img {
+  width: 100%;
+}
+
+.home-slogan {
+  font-size: 15em;
+  padding-top: 100px;
+}
+
+.home-subslogan {
+  margin-left: 50%;
+}
+.last-post-container {
+  height: 100px;
+}
+
+.last-post {
+  font-size: 0.6em !important;
+  float: left !important;
+  width: 20%;
+}
+
+.last-post h1 {
+  font-size: 1.2em !important;
+}

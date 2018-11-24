@@ -11,16 +11,29 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="List">
-        <h1>List component</h1>
+      <div className="Home">
+        <h1 className="home-slogan">monogo</h1>
+        <div className="home-subslogan">
+          <p className="font_small">01 AUGUST 2018</p>
+          <p>ARE YOU IN THE MARKET FOR A COMPUTER?</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin enim et accumsan lobortis.</p>
+        </div>
+        <div className="home-latest p-5">
+          <h3>Latest news</h3>
+          <div><img src={require("../images/images.jpg")} /></div>
+          <div className="last-post-container">
           {/* Render posts */}
           {!this.props.posts.length === 0 ? <p>Sorry, didn't found any Post</p> : this.props.posts.map((el) =>
-            <div key={el.id}>
-              <h1>{el.id}</h1>
-              <h1>{el.title}</h1>
-              <div dangerouslySetInnerHTML={{__html: el.body}} />
+            <div key={el.id} className="" >
+              <div className="last-post">
+                <h1>{el.id}</h1>
+                <h1>{el.title}</h1>
+                <div dangerouslySetInnerHTML={{__html: el.body}} />
+              </div>
             </div>
             )}
+          </div>
+        </div>
 
 
       </div>
