@@ -9,21 +9,23 @@ import Pagination from './components/Pagination';
 
 class App extends Component {
 
+
   state = {
      defaultPosts: [],
      posts: [],
      msg: ''
    }
 
+
    /**
   * Search post by title.
   */
  searchPost(e) {
-
+console.log(this.state.defaultPosts);
      if (e.target.value.length > 0) {
        this.setState({
          posts: this.state.defaultPosts.filter((el) => el.title.toLowerCase().includes(e.target.value.toLowerCase()))
-       }, this.alertMessage);
+       });
      } else {
        this.setState({
          posts: this.state.defaultPosts.slice(0,5)
@@ -50,18 +52,19 @@ class App extends Component {
         posts: json.slice(0, 5)
       });
     });
-
   }
 
   render() {
     return (
       <div>
-        <div className="container-fluid">
-          <nav>
+        <div className="container-fluid app-header">
+          <input className="search mt-5" onChange={(e) => this.searchPost(e)} />
+          <nav className="ml-5">
             <Link to="/">Home</Link><span> | </span>
+            <Link to="/posts/1">Posts</Link><span> | </span>
             <Link to="/about">About Us</Link>
           </nav>
-          <input onChange={(e) => this.searchPost(e)} />
+
         </div>
         <div className="App container">
 
@@ -71,20 +74,21 @@ class App extends Component {
                  <Home
                    posts = {this.state.posts}
                    />
-                 <Pagination
-                   pag = {this.pagination}
-                   />
                </div>
              )}/>
            <Route exact path="/posts/:id" render={(props)=>(
                <div>
                  <List
+                   defPosts = {this.state.defaultPosts}
                    posts = {this.state.posts}
                    pagprops = {props}
-                   />
-                 <Pagination
                    pag = {this.pagination}
+                   getParam = {this.getParam}
                    />
+                   <Pagination
+                     pag = {this.pagination}
+                     />
+
                </div>
              )}/>
             <Route exact path="/about" component={Aboutus} />
@@ -92,6 +96,8 @@ class App extends Component {
           </Switch>
 
         </div>
+
+
         <div className="container-fluid footer">Footer</div>
       </div>
     );
