@@ -8,6 +8,13 @@ import './NoMatch.css';
 class NoMatch extends Component {
 
   /**
+   * Reset redirect to false to prevent always loading not found.
+   */
+  componentDidMount() {
+    this.props.resetRedirect();
+  }
+
+  /**
    * Render view of this component.
    */
   render() {

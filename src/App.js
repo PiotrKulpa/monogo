@@ -14,12 +14,18 @@ import Pagination from './components/Pagination';
 class App extends Component {
 
   /**
-   * Get url parameters and set paramId.
+   * Parameter id from url posts.
    */
   paramId = 1;
 
+  /**
+   * If true riderect to NoMatch component.
+   */
   redirect = false;
 
+  resetRedirect = () => {
+    this.redirect = false
+  }
 
   /**
    * Get url parameters and set paramId.
@@ -29,7 +35,6 @@ class App extends Component {
     if(e < 4) {
       this.paramId = e
     } else {
-      this.paramId = 1;
       this.redirect = true;
     }
   }
@@ -79,7 +84,6 @@ class App extends Component {
          posts: this.state.defaultPosts.slice(0,5)
        });
      }
-
    }
 
  /**
@@ -98,7 +102,6 @@ class App extends Component {
   * Update posts library when data is fetched.
   */
   componentDidMount() {
-    this.redirect = false;
     let maxRange = 5 * this.paramId;
     let minRange = maxRange - 5;
 
@@ -168,7 +171,12 @@ class App extends Component {
 
              )}/>
             <Route exact path="/about" component={Aboutus} />
-            <Route component={NoMatch} />
+            <Route render={() => (
+                <NoMatch
+                  resetParam={this.getParam}
+                  resetRedirect={this.resetRedirect}
+                  />
+              )} />
           </Switch>
 
         </div>
