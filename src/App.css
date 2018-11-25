@@ -1,3 +1,12 @@
+/*!
+ * Monogo v1.0.0
+ * Copyright 2018 Piotr Kulpa
+ * Licensed under MIT
+ */
+
+ /*
+  * Body section
+  */
 html {font-size: 1em;}
 
 body {
@@ -41,6 +50,9 @@ small, .font_small {font-size: 0.667em;}
   margin-left: 40px;
 }
 
+/*
+ * Header section
+ */
 .search {
   margin: auto;
   width: 200px;
@@ -84,6 +96,9 @@ small, .font_small {font-size: 0.667em;}
   text-decoration: none;
 }
 
+/*
+ * Footer section
+ */
 .app-footer {
   clear: both;
   background-color: #11151e;

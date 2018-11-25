@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-
+/**
+ * Class representing Home component.
+ * @extends React.Component
+ */
 class Home extends Component {
 
   componentDidMount() {
     //console.log(props.match.params.id);
   }
 
+  /**
+   * Render view of this component.
+   */
   render() {
     return (
       <div className="Home">
@@ -20,7 +26,6 @@ class Home extends Component {
         </div>
         <div className="home-latest p-5">
           <h3>Latest news</h3>
-
           <div className="last-post-container">
           {/* Render last posts */}
           {!this.props.posts.length === 0 ? <p>Sorry, didn't found any Post</p> : this.props.posts.map((el) =>
@@ -35,11 +40,10 @@ class Home extends Component {
             )}
           </div>
         </div>
-
-
       </div>
     );
   }
 }
 
+/** @module Home */
 export default Home;

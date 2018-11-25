@@ -7,34 +7,48 @@ import Aboutus from './components/Aboutus';
 import NoMatch from './components/NoMatch';
 import Pagination from './components/Pagination';
 
+/**
+ * Class representing main component.
+ * @extends React.Component
+ */
 class App extends Component {
 
-
+  /**
+   * @property {object}  this.state           - The default values for state.
+   * @property {array}   state.defaultPosts   - The array of default posts.
+   * @property {array}  state.latestPosts    - The array of latest posts.
+   * @property {array}  state.posts          - The array of posts to manipulate for view.
+   * @property {boolean}  state.goToPosts    - The boolean for check if search input is focused.
+   */
   state = {
      defaultPosts: [],
      latestPosts: [],
      posts: [],
-     goToPosts: false,
-     msg: ''
+     goToPosts: false
    }
 
-onFocus() {
-  this.setState({
-    goToPosts: true
-  });
-}
-
-onBlur() {
-  this.setState({
-    goToPosts: false
-  });
-}
-
    /**
-  * Search post by title.
-  */
+    * Set focus on search and go to /posts/1 .
+    */
+  onFocus() {
+    this.setState({
+      goToPosts: true
+    });
+  }
+
+  /**
+   * Unset focus on search input.
+   */
+  onBlur() {
+    this.setState({
+      goToPosts: false
+    });
+}
+
+  /**
+   * Search post by title.
+   */
  searchPost(e) {
-console.log(Redirect);
      if (e.target.value.length > 0) {
        this.setState({
          posts: this.state.defaultPosts.filter((el) => el.title.toLowerCase().includes(e.target.value.toLowerCase()))
@@ -47,7 +61,10 @@ console.log(Redirect);
 
    }
 
-   pagination = (id) => {
+ /**
+  * Change posts range when pagination button is clicked.
+  */
+  pagination = (id) => {
      let maxRange = 5 * id;
      let minRange = maxRange - 5;
 
@@ -56,6 +73,9 @@ console.log(Redirect);
      })
    }
 
+ /**
+  * Update posts library when data is fetched.
+  */
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
@@ -68,10 +88,11 @@ console.log(Redirect);
     });
   }
 
+  /**
+   * Render view of main component.
+   */
   render() {
-
     return (
-
       <div>
         <div className="container-fluid app-header">
           <p className="slogan pt-2">WHEN YOU ENTER INTO ANY NEW AREA OF SCIENCE...</p>
@@ -143,4 +164,5 @@ console.log(Redirect);
   }
 }
 
+/** @module App */
 export default App;

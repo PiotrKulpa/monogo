@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import './NoMatch.css';
 
+/**
+ * Class representing NoMatch component.
+ * @extends React.Component
+ */
 class NoMatch extends Component {
+
+  /**
+   * Render view of this component.
+   */
   render() {
     return (
       <div className="NoMatch">
@@ -15,4 +23,5 @@ class NoMatch extends Component {
   }
 }
 
+/** @module NoMatch */
 export default NoMatch;
