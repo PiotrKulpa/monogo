@@ -19,7 +19,7 @@ class Home extends Component {
           <p>ARE YOU IN THE MARKET FOR A COMPUTER?</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin enim et accumsan lobortis.</p>
         </div>
-        <div className="home-latest p-5">
+        <div className="home-latest">
           <h3>Latest news</h3>
           <div className="last-post-container">
           {/* Render last posts */}

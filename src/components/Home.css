@@ -4,6 +4,7 @@
 .home-latest {
   background-color: #cc171e;
   margin-top: 200px;
+  padding: 15px !important;
 }
 
 .home-latest img {
@@ -40,3 +41,112 @@ box-sizing: border-box;
 .last-post h1 {
   font-size: 1.2em !important;
 }
+
+/*
+ * RWD
+ */
+ @media screen and (max-width: 400px) {
+   .Home {
+     background-color: black;
+   }
+
+   .home-slogan {
+     font-size: 3em;
+     padding: 5px;
+   }
+
+   .home-latest {
+     margin-top: 5px;
+     padding: 5px !important;
+   }
+
+   .last-post {
+     font-size: 0.6em !important;
+     float: none !important;
+     width: 100%;
+   }
+
+   .last-post-container {
+     height: 100%;
+   }
+
+   .home-subslogan {
+     margin-left: 0;
+     padding: 5px;
+   }
+ }
+
+ @media screen and (min-width: 401px) and (max-width: 768px) {
+   .Home {
+     background-color: black;
+   }
+
+   .home-slogan {
+     font-size: 7em;
+     padding: 5px;
+   }
+
+   .home-latest {
+     margin-top: 5px;
+     padding: 5px !important;
+   }
+
+   .home-latest img {
+     width: 100%;
+     margin-right: 10px;
+     border: 3px solid white;
+   }
+
+   .last-post-container {
+     height: 100%;
+     overflow: auto;
+   }
+
+   .home-subslogan {
+     margin-left: 0;
+     padding: 5px;
+   }
+ }
+
+ @media screen and (min-width: 769px) {
+   .home-latest {
+     background-color: #cc171e;
+     margin-top: 200px;
+     padding: 15px !important;
+   }
+
+   .home-latest img {
+   box-sizing: border-box;
+     width: 98%;
+     margin-right: 10px;
+     border: 3px solid white;
+   }
+
+   .home-slogan {
+     font-size: 15em;
+     padding-top: 100px;
+   }
+
+   .home-subslogan {
+     margin-left: 50%;
+   }
+   .last-post-container {
+     height: 300px;
+   }
+
+   .last-post {
+     font-size: 0.6em !important;
+     float: left !important;
+     width: 20%;
+   }
+
+   .last-post:hover {
+     cursor: pointer;
+     transition: opacity 1s;
+     opacity: 0.8;
+   }
+
+   .last-post h1 {
+     font-size: 1.2em !important;
+   }
+ }

@@ -1,3 +1,19 @@
 .Aboutus {
   width: 100%;
 }
+
+/*
+ * RWD
+ */
+ @media screen and (max-width: 400px) {
+   .Aboutus {
+     background-color: black;
+   }
+
+ }
+
+ @media screen and (min-width: 401px) and (max-width: 768px) {
+   .Aboutus {
+     background-color: black;
+   }
+ }

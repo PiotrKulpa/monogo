@@ -114,7 +114,7 @@ class App extends Component {
 
         <div className="container-fluid app-header">
           <p className="slogan pt-2">WHEN YOU ENTER INTO ANY NEW AREA OF SCIENCE...</p>
-          <input className="search mt-5 mr-5"
+          <input className="search"
             onChange={(e) => this.searchPost(e)}
             onFocus={() => this.onFocus()}
             onBlur={() => this.onBlur()}

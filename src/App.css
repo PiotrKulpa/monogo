@@ -103,3 +103,27 @@ small, .font_small {font-size: 0.667em;}
   clear: both;
   background-color: #11151e;
 }
+
+/*
+ * RWD Minor breaks
+ */
+ @media screen and (max-width: 400px) {
+   .search {
+      height: 44px;
+      margin: 5px 0 !important;
+      width: 100%;
+      position: absolute;
+   }
+
+   .app-menu {
+     margin-top: 75px;
+   }
+
+   .app-line {
+     margin-bottom: 5px;
+   }
+
+   .app-navigation a:nth-child(1) {
+     padding-left: 0;
+   }
+ }
