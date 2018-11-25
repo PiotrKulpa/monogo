@@ -57,12 +57,14 @@ small, .font_small {font-size: 0.667em;}
 .search {
   margin: auto;
   width: 200px;
-  right: 0;
+  right: 10px;
   position: absolute;
   border-radius: 15px;
   border: none;
   outline-width: 0;
   padding-left: 15px;
+  border: 1px solid red;
+  height: 44px;
 }
 
 .search:focus {
@@ -118,6 +120,7 @@ small, .font_small {font-size: 0.667em;}
       width: 100%;
       position: absolute;
       border: 1px solid red;
+      right: 0;
    }
 
    .app-menu {
