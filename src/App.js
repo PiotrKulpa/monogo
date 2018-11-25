@@ -18,13 +18,20 @@ class App extends Component {
    */
   paramId = 1;
 
+  redirect = false;
+
 
   /**
    * Get url parameters and set paramId.
    */
   getParam = (e) => {
-    e < 4 ? this.paramId = e : this.paramId = 1;
-    console.log(this.paramId);
+    //e < 4 ? this.paramId = e : this.paramId = 1;
+    if(e < 4) {
+      this.paramId = e
+    } else {
+      this.paramId = 1;
+      this.redirect = true;
+    }
   }
 
   /**
@@ -91,6 +98,7 @@ class App extends Component {
   * Update posts library when data is fetched.
   */
   componentDidMount() {
+    this.redirect = false;
     let maxRange = 5 * this.paramId;
     let minRange = maxRange - 5;
 
@@ -135,7 +143,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" render={()=>(
-                this.state.goToPosts ? <Redirect to="/posts/1" /> :
+              this.state.goToPosts ? <Redirect to="/posts/1" /> :
                <div>
                    <Home
                      posts = {this.state.latestPosts}
@@ -143,7 +151,9 @@ class App extends Component {
                </div>
              )}/>
            <Route exact path="/posts/:id" render={(props)=>(
-               <div>
+              this.redirect ?
+              <Redirect to="/not-found" /> :
+              <div>
                  <List
                    defPosts = {this.state.defaultPosts}
                    posts = {this.state.posts}
@@ -155,6 +165,7 @@ class App extends Component {
                      pag = {this.pagination}
                      />
                </div>
+
              )}/>
             <Route exact path="/about" component={Aboutus} />
             <Route component={NoMatch} />

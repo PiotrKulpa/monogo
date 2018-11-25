@@ -1,4 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Title
+
+Monogo React SPA
+
+## Getting Started
+
+Clone this repository, install dependiences  and run npm start to develope.
+
+## Available paths
+
+/ - home page
+/posts/:id - 3 x 5 posts  
+/aboutus - about us page
+
+## Deployment
+
+npm run build
+
+## Built With
+
+* React- The web framework used
+* jQuery
+* Bootstrap
+
+## Authors
+
+* **Piotr Kulpa**
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 
 ## Available Scripts
 
