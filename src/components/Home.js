@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './Home.css';
 
 /**
@@ -7,10 +6,6 @@ import './Home.css';
  * @extends React.Component
  */
 class Home extends Component {
-
-  componentDidMount() {
-    //console.log(props.match.params.id);
-  }
 
   /**
    * Render view of this component.
@@ -31,7 +26,7 @@ class Home extends Component {
           {!this.props.posts.length === 0 ? <p>Sorry, didn't found any Post</p> : this.props.posts.map((el) =>
             <div key={el.id} className="" >
               <div className="last-post">
-                <img src={require(`../images/last_${el.id}.jpg`)} />
+                <img src={require(`../images/last_${el.id}.jpg`)} alt="last post" />
                 <h1>{el.id}</h1>
                 <h1>{el.title}</h1>
                 <div dangerouslySetInnerHTML={{__html: el.body}} />

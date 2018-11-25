@@ -14,6 +14,20 @@ import Pagination from './components/Pagination';
 class App extends Component {
 
   /**
+   * Get url parameters and set paramId.
+   */
+  paramId = 1;
+
+
+  /**
+   * Get url parameters and set paramId.
+   */
+  getParam = (e) => {
+    e < 4 ? this.paramId = e : this.paramId = 1;
+    console.log(this.paramId);
+  }
+
+  /**
    * @property {object}  this.state           - The default values for state.
    * @property {array}   state.defaultPosts   - The array of default posts.
    * @property {array}  state.latestPosts    - The array of latest posts.
@@ -43,7 +57,7 @@ class App extends Component {
     this.setState({
       goToPosts: false
     });
-}
+  }
 
   /**
    * Search post by title.
@@ -77,12 +91,15 @@ class App extends Component {
   * Update posts library when data is fetched.
   */
   componentDidMount() {
+    let maxRange = 5 * this.paramId;
+    let minRange = maxRange - 5;
+
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
     .then((json) => {
       this.setState({
         defaultPosts: json,
-        posts: json.slice(0, 5),
+        posts: json.slice(minRange, maxRange),
         latestPosts: json.slice(0, 5)
       });
     });
@@ -94,6 +111,7 @@ class App extends Component {
   render() {
     return (
       <div>
+
         <div className="container-fluid app-header">
           <p className="slogan pt-2">WHEN YOU ENTER INTO ANY NEW AREA OF SCIENCE...</p>
           <input className="search mt-5 mr-5"
@@ -102,16 +120,16 @@ class App extends Component {
             onBlur={() => this.onBlur()}
             placeholder="search post" />
           <div className="row align-items-center app-menu">
-            <div className="col-sm-1"><img src={require("./images/logo.jpg")} /></div>
-            <nav className="app-navigation col-sm-10 ml-1">
+            <div className="col-sm-1"><img src={require("./images/logo.jpg")} alt="logo" /></div>
+
+          <nav className="app-navigation col-sm-10 ml-1">
               <NavLink exact activeClassName="active-menu" to="/">Home</NavLink>
               <NavLink activeClassName="active-menu" to="/posts/1">Posts</NavLink>
               <NavLink activeClassName="active-menu" to="/about">About Us</NavLink>
             </nav>
+
           </div>
-
           <div className="app-line"></div>
-
         </div>
         <div className="App container">
 
@@ -119,7 +137,6 @@ class App extends Component {
             <Route exact path="/" render={()=>(
                 this.state.goToPosts ? <Redirect to="/posts/1" /> :
                <div>
-
                    <Home
                      posts = {this.state.latestPosts}
                      />
@@ -137,7 +154,6 @@ class App extends Component {
                    <Pagination
                      pag = {this.pagination}
                      />
-
                </div>
              )}/>
             <Route exact path="/about" component={Aboutus} />
@@ -145,11 +161,9 @@ class App extends Component {
           </Switch>
 
         </div>
-
-
         <div className="container-fluid app-footer pt-5">
           <div className="row align-items-center">
-            <div className="col-sm-1"><img src={require("./images/logo.jpg")} /></div>
+            <div className="col-sm-1"><img src={require("./images/logo.jpg")} alt="logo" /></div>
             <div className="footer-data col-sm-12 col-md-5 ml-1 font_small">
                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin enim et accumsan lobortis. Pellentesque ac enim velit. Nullam condimentum sagittis nulla non posuere. Sed placerat finibus auctor. Fusce quam arcu, porta et pretium non, fermentum in dui. Proin at tortor ut eros vulputate venenatis sit amet in tellus. Nullam elementum nec purus nec sagittis. Nulla sagittis dignissim porttitor. Suspendisse lacinia enim nec diam euismod gravida. Proin elementum felis tellus, sed sollicitudin arcu euismod at.</p>
                <p>Sed sollicitudin arcu euismod at.</p>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './List.css';
 
 /**
@@ -7,6 +6,10 @@ import './List.css';
  * @extends React.Component
  */
 class List extends Component {
+
+  componentDidMount() {
+    this.props.getParam(this.props.pagprops.match.params.id)
+  }
 
   /**
    * Render view of this component.
