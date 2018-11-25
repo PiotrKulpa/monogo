@@ -113,7 +113,7 @@ class App extends Component {
       <div>
 
         <div className="container-fluid app-header">
-          <p className="slogan pt-2">WHEN YOU ENTER INTO ANY NEW AREA OF SCIENCE...</p>
+          <p className="slogan pt-2">MONOGO APP ...</p>
           <input className="search"
             onChange={(e) => this.searchPost(e)}
             onFocus={() => this.onFocus()}
